@@ -1,0 +1,12 @@
+.cat-lists{
+    list-style-type: none;
+    padding-left: 0;
+}
+.cat-lists > li{
+    padding: 5px 0px;
+}
+.cat-lists > li:hover{
+    color: blue;
+    cursor: pointer;
+    
+}

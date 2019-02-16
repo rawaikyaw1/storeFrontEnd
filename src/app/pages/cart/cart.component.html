@@ -1,0 +1,72 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <table class="table">
+        <thead>
+          <tr>
+            <th><i class="fa fa-trash-o" area-hidden="true"></i></th>
+            <th>Image</th>
+            <th>Products</th>
+            <th>Price</th>
+            <th>Quaility</th>
+            <th>Total</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of this.cartSvc.getItems()">
+            <td class="action">
+              <a (click)="removeItemCart(item)">
+                <i class="fa fa-times" area-hidden="true"></i>
+              </a>
+            </td>
+            <td class="cart_product_img">
+              <a >
+                <img src="{{this.prodSvc.getURL(item.thumbnail)}}" alt="Product" width="60px">
+              </a>
+            </td>
+            <td class="cat_product_desc">
+              <h5>{{item.title}}</h5>
+            </td>
+            <td class="price"><span>{{item.price}}</span></td>
+            <td class="qty">
+              <div class="quantity">
+                <span class="qty-minus" (click)="updateQtyCart(item,'m')">
+                  <i class="fa fa-minus" area-hidden="true"></i>
+                </span>
+                <input type="number" class="qty-text" step="1" max="99" name="quantity" value="{{item.qty}}" style="width:40px">
+                <span class="qty-plus" (click)="updateQtyCart(item,'p')">
+                  <i class="fa fa-plus" area-hidden="true"></i>
+                </span>
+              </div>
+            </td>
+            <td class="total_price">
+              <span>${{item.qty * item.price}}</span>
+            </td>
+          </tr>
+
+          <tr *ngIf='!this.cartSvc.getTotalAmount() > 0'>
+              <td colspan="6"><p>Your cart is empty!</p></td>
+          </tr>
+
+        </tbody>
+        <tfoot>
+          <tr>
+            <td colspan="4"></td>
+            <td>Total (tex ind.)</td>
+            <td>${{this.cartSvc.getTotalAmount()}}</td>
+          </tr>
+          <tr>
+            <td colspan="4"></td>
+            <td><strong>Total</strong></td>
+            <td><strong>$ {{this.cartSvc.getTotalAmount()}}</strong></td>
+          </tr>
+          
+          <tr *ngIf='this.cartSvc.getTotalAmount() > 0'>
+              <td colspan="6"><a class="btn btn-primary pull-right" routerLink="/checkout">Check Out</a></td>
+          </tr>
+
+        </tfoot>
+      </table>
+    </div>
+  </div>
+</div>

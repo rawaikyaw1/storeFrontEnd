@@ -26,71 +26,32 @@
 </div>
 
 <div class="container">
-  <h3 class="h3">Book Lists </h3>
-  <div class="row pb-3">
-      <div class="col-md-3 col-sm-6">
-          <div class="product-grid2 img-thumbnail">
-              <div class="product-image2">
-                  <a href="#">
-                      <img class="pic-1" src="assets/images/books/book-store.jpg">
-                      <img class="pic-2" src="assets/images/books/book.jpeg">
-                  </a>
-                  
-                  <a class="add-to-cart" href="">Add to cart</a>
-              </div>
-              <div class="product-content">
-                  <h3 class="title"><a href="#">The Best Sell Book</a></h3>
-                  <span class="price">$599.99</span>
-              </div>
-          </div>
-      </div>
-      <div class="col-md-3 col-sm-6">
+  <div class="row">
+    
+    <div class="col-md-12">
+      <br>
+      <h3 class="h3 text-center">Book Lists </h3>
+      <br>
+      <div class="row ">
+        
+        <div class="col-md-3 col-sm-6" *ngFor="let product of products">
           <div class="product-grid2 img-thumbnail">
             <div class="product-image2">
-                <a href="#">
-                    <img class="pic-1" src="assets/images/books/book-store.jpg">
-                      <img class="pic-2" src="assets/images/books/book.jpeg">
-                </a>
-                
-                <a class="add-to-cart" href="">Add to cart</a>
-              </div>
-              <div class="product-content">
-                  <h3 class="title"><a href="#">The Best Sell Book</a></h3>
-                  <span class="price">$699.99</span>
-              </div>
+              <a href="#">
+                <img class="pic-1" src="{{this.prodSvc.getURL(product.thumbnail) }}" width="260px">                
+              </a> 
+            </div>
+            <div class="product-content">
+              <h3 class="title"><a href="#">{{product.title}}</a></h3>
+              <span class="price">{{product.price}}</span>
+              <p>
+                {{product.description}}
+              </p>
+              <a class="add-to-cart btn btn-primary" (click)='addToCart(product)'>Add to cart</a>
+            </div>
           </div>
+        </div>
       </div>
-      <div class="col-md-3 col-sm-6">
-          <div class="product-grid2 img-thumbnail">
-              <div class="product-image2">
-                  <a href="#">
-                    <img class="pic-1" src="assets/images/books/book-store.jpg">
-                    <img class="pic-2" src="assets/images/books/book.jpeg">
-                  </a>
-                  
-                  <a class="add-to-cart" href="">Add to cart</a>
-              </div>
-              <div class="product-content">
-                  <h3 class="title"><a href="#">Women's Designer Top</a></h3>
-                  <span class="price">$599.99</span>
-              </div>
-          </div>
-      </div>
-      <div class="col-md-3 col-sm-6">
-          <div class="product-grid2 img-thumbnail">
-              <div class="product-image2">
-                  <a href="#">
-                    <img class="pic-1" src="assets/images/books/book-store.jpg">
-                    <img class="pic-2" src="assets/images/books/book.jpeg">
-                  </a>
-                  
-                  <a class="add-to-cart" href="">Add to cart</a>
-              </div>
-              <div class="product-content">
-                  <h3 class="title"><a href="#">The Best Sell Book</a></h3>
-                  <span class="price">$599.99</span>
-              </div>
-          </div>
-      </div>
+    </div>
   </div>
 </div>

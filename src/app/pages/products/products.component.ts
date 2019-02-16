@@ -1,22 +1,22 @@
 import { Component, OnInit } from '@angular/core';
-import { from } from 'rxjs';
 import { ProductsServiceService } from 'src/app/services/products-service.service';
 import { CategoryService } from 'src/app/services/category.service';
 import { CartService } from 'src/app/services/cart.service';
 declare var require:any;
 var toastr = require('toastr');
 
-
 @Component({
-  selector: 'app-home',
-  templateUrl: './home.component.html',
-  styleUrls: ['./home.component.css']
+  selector: 'app-products',
+  templateUrl: './products.component.html',
+  styleUrls: ['./products.component.css']
 })
-export class HomeComponent implements OnInit {
+export class ProductsComponent implements OnInit {
 
   public cats:any;
   public products:any;
-  
+  public category:any;
+  public id:any;
+
   constructor(private prodSvc: ProductsServiceService, private catSvc: CategoryService, private cartSvc: CartService) { }
 
   ngOnInit() {
@@ -31,19 +31,24 @@ export class HomeComponent implements OnInit {
     },
     (err)=>{
       console.log(err);
-    });   
+    });
 
   }
 
-  filterByCategory(id, name) {
-    console.log(id);
-    console.log(name);
+  filterByCategory(id,name){
+    this.category = name;
+    this.prodSvc.getAll({category:id}).subscribe((res:any)=>{
+      this.products = res.data;
+    },
+    (err)=>{
+      console.log(err);
+    });
   }
 
   addToCart(product){
     console.log(product);
     this.cartSvc.add(product);
-    toastr.success('Successfully added to the cart.');
+    toastr.warning('Successfully added to the cart.');
   }
 
 }

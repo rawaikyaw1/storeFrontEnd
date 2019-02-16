@@ -1,0 +1,21 @@
+<div class="container">
+    <div class="row">
+      <div class="col-md-6">
+        <h1>Sign Up</h1>
+        <form action="" method="POST" #loginForm="ngForm" (ngSubmit)="onloginFormSubmit(loginForm)">
+          
+          <div class="form-group">
+            <label for="email">Email or Phone</label>
+            <input type="text" name="phone" placeholder="Enter Email or Phone" class="form-control" [(ngModel)]="user.phone">
+          </div>
+          
+          <div class="form-group">
+              <label for="password">Password</label>
+              <input type="password" name="password" placeholder="Enter Password" class="form-control" [(ngModel)]="user.password">
+            </div>
+            
+              <button type="submit" class="btn btn-primary">Login</button>
+        </form>
+      </div>
+    </div>
+  </div>
