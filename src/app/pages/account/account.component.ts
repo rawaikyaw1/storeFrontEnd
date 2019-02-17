@@ -30,9 +30,13 @@ export class AccountComponent implements OnInit {
     // console.log(this.user);
 
     this.auth.updateProfile(this.user).subscribe((res:any)=>{
-      console.log(res);
+      // console.log(res);
       toastr.info("Successfully update your info!");
     });
+  }
+
+  onMyOrder(){
+
   }
 
 }

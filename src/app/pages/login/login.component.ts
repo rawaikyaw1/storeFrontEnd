@@ -18,18 +18,19 @@ export class LoginComponent implements OnInit {
   }
 
   onloginFormSubmit(form){
+    console.log(form);
     if(!form.valid){
       alert('Form validation errors');
     }
 
-    console.log(form);
+    console.log('hello');
 
     this.authSvc.login(this.user).subscribe(
       (res:any)=>{
         if(res.user && res.token){
           this.authSvc.saveUser(res.user,res.token);
 
-          window.location.href = "/account";
+          window.location.href = "/";
           // console.log(res.token);
           // window.location.href = "/";
         }

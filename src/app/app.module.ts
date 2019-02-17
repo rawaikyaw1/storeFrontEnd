@@ -14,6 +14,8 @@ import { FormsModule } from '@angular/forms';
 import { AccountComponent } from './pages/account/account.component';
 import { MyOrdersComponent } from './pages/my-orders/my-orders.component';
 import { OrderDetailsComponent } from './pages/order-details/order-details.component';
+import { CheckoutComponent } from './pages/checkout/checkout.component';
+import { ThankyouComponent } from './pages/thankyou/thankyou.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +29,9 @@ import { OrderDetailsComponent } from './pages/order-details/order-details.compo
     LoginComponent,
     AccountComponent,
     MyOrdersComponent,
-    OrderDetailsComponent
+    OrderDetailsComponent,
+    CheckoutComponent,
+    ThankyouComponent
   ],
   imports: [
     BrowserModule,

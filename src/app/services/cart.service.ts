@@ -2,6 +2,12 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders} from '@angular/common/http';
 import {API_URL , PUBLIC_URL } from '../../environments/environment';
 
+const httpOptions = {
+  headers: new HttpHeaders({ //headers must contain S .
+    'Content-Type':'application/json',
+    'Authorization':'Bearer '+localStorage.getItem("_token")
+  })
+};
 
 @Injectable({
   providedIn: 'root'
@@ -121,6 +127,11 @@ export class CartService {
   clear(){
     this.items = [];
     this.save();
+  }
+
+  submitOrder(orderData){
+    let url = API_URL+'/orders';
+    return this.http.post(url,orderData,httpOptions);
   }
   
 
