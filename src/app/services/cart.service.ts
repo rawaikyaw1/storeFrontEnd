@@ -133,6 +133,16 @@ export class CartService {
     let url = API_URL+'/orders';
     return this.http.post(url,orderData,httpOptions);
   }
+
+  getMyOrders(){
+    let url = API_URL+"/orders";
+    return this.http.get(url,httpOptions);
+  }
+
+  getOrderDetails(id){
+    let url = API_URL+"/orders/"+id;
+    return this.http.get(url, httpOptions);
+  }
   
 
 }

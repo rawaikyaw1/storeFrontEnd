@@ -1,3 +1,35 @@
-<p>
-  my-orders works!
-</p>
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <h3 *ngIf="loading">Loading.....</h3>
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <td>Id</td>
+            <td>Phone</td>
+            <td>Address</td>
+            <td>City</td>
+            <td>Total Amount</td>
+            <td>Payment Method</td>
+            <td>Status</td>
+            <td>Action</td>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let order of orders">
+            <td>{{order.id}}</td>
+            <td>{{order.User.phone}}</td>
+            <td>{{order.User.address}}</td>
+            <td>{{order.city}}</td>
+            <td>{{order.total_amount}}</td>
+            <td>{{order.payment_method}}</td>
+            <td>{{order.status}}</td>
+            <td>
+              <a routerLink="/account/orders/{{order.id}}">View Details</a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
