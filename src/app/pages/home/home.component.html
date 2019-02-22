@@ -30,24 +30,25 @@
     
     <div class="col-md-12">
       <br>
-      <h3 class="h3 text-center">Book Lists </h3>
+      <h3 class="h3 text-center">Product Lists </h3>
       <br>
       <div class="row ">
         
         <div class="col-md-3 col-sm-6" *ngFor="let product of products">
-          <div class="product-grid2 img-thumbnail">
+          <br>
+          <div class="product-grid2 img-thumbnail" style="height:385px">
             <div class="product-image2">
               <a href="#">
-                <img class="pic-1" src="{{this.prodSvc.getURL(product.thumbnail) }}" width="260px">                
+                <img class="pic-1" src="{{this.prodSvc.getURL(product.thumbnail) }}" width="260px" height="190px">                
               </a> 
             </div>
             <div class="product-content">
-              <h3 class="title"><a href="#">{{product.title}}</a></h3>
+              <h6 class="title"><a href="#">{{product.title}}</a></h6>
               <span class="price">{{product.price}}</span>
               <p>
                 {{product.description}}
               </p>
-              <a class="add-to-cart btn btn-primary" (click)='addToCart(product)'>Add to cart</a>
+              <a class="add-to-cart btn btn-primary btn-sm" (click)='addToCart(product)'>Add to cart</a>
             </div>
           </div>
         </div>
